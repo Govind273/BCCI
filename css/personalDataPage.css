@@ -1,0 +1,13 @@
+.career {
+	min-height: 42em;
+	max-height: 42em;
+	margin-left: 20px;
+	text-align: center;
+}
+
+.granStats {
+	min-height: 42em;
+	max-height: 42em;
+	margin-right: 20px;
+	text-align: center;
+}
