@@ -9,7 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/personalDataPage.css" rel="stylesheet">
+    <link href="css/personalDataPageNew.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,10 +19,43 @@
     <![endif]-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+	window.onload = function () {
+
+var chart = new CanvasJS.Chart("batChartDiv", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Simple Line Chart"
+	},
+	axisY:{
+		includeZero: true
+	},
+	data: [{        
+		type: "line",       
+		dataPoints: [
+			{ y: 450 },
+			{ y: 414},
+			{ y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
+			{ y: 460 },
+			{ y: 450 },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 480 },
+			{ y: 410 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 510 }
+		]
+		}]
+	});
+	chart.render();
+	}   
+  </script>
   </head>
   <body> 
   	<div class = "page-header" >
-      <center><h2>My Performance</h2></center>
+      <center><h1>My Performance</h1></center>
     </div>
     <div class="container">
       <div class="col-md-12">
@@ -32,19 +65,100 @@
         </ul>
         <div class="tab-content">
           <div id="myCareer" class="tab-pane fade in active">
-              <div class="row">
+              <!-- <div class="row">
 	            <div class="col-md-10 col-md-offset-1">
 	              <div class="career">
-	                  <h1>My Career</h1>
+	                  <h2>My Career</h2>
+	                  <div class= "col-md-offset-1">
+	                  	<table id = "battingTable" class = "table table-bordered">
+	                  		<tr>
+	                  			<th>Runs</th>
+	                  			<th>Balls Faced</th>
+	                  			<th>Average</th>
+	                  			<th>Strike Rate</th>
+	                  		</tr>
+	                  		<tr>
+	                  		 	<td id = "runs">Runs</td>
+	                  			<td id = "ballsFaced">Balls Faced</td>
+	                  			<td id = "avg">Average</td>
+	                  			<td id = "strikeRate">Strike Rate</td>
+	                  		</tr>
+	                  	</table>
+	                  	<table id = "bowlingTable" class = "table table-bordered">
+	                  		<tr>
+	                  			<th>Runs</th>
+	                  			<th>Balls Faced</th>
+	                  			<th>Average</th>
+	                  			<th>Strike Rate</th>
+	                  		</tr>
+	                  		<tr>
+	                  		 	<td id = "runs">Runs</td>
+	                  			<td id = "ballsFaced">Balls Faced</td>
+	                  			<td id = "avg">Average</td>
+	                  			<td id = "strikeRate">Strike Rate</td>
+	                  		</tr>
+	                  	</table>	
+	                  </div>
 	              </div>
 	            </div>
-	      	   </div>
+	      	   </div> -->
+	    <div id = "graphRow" class ="row">
+	    	<div class="col-md-3 col-md-offset-2">
+	    		<h4 id = "batStat">Batting Stats</h4>
+	    		<div id= "batChartDiv" style = "max-height: 200px">
+	    			<!-- <canvas id = "batLineChart"></canvas> -->
+	    		</div>
+	    		<script src="js/canvasjs.min.js"></script>
+	    	</div>
+	    	<div class="col-md-3 col-md-offset-2">
+                <h4 id = "batStat">Bowling Stats</h4>
+                <div class= "bowlChartDiv">
+                	<canvas id = "bowlLineChart"></canvas>
+	    		</div>
+	    	</div>	
+	    </div>
+	    <div id = "tableRow" class="row">
+            <div class="col-md-3 col-md-offset-2">
+              <div class="battingStats">
+                  <table id = "battingTable" class = "table table-bordered">
+	                  	<tr>
+	                  		<th>Runs</th>
+	                  		<th>Balls Faced</th>
+	                  		<th>Average</th>
+	               			<th>Strike Rate</th>
+	               		</tr>
+	                  	<tr>
+	                  		<td id = "runs">Runs</td>
+	                  		<td id = "ballsFaced">Balls Faced</td>
+	                  		<td id = "avg">Average</td>
+	                  		<td id = "strikeRate">Strike Rate</td>
+	                  	</tr>
+	                 </table>	
+              </div>
+            </div>
+            <div class="col-md-3 col-md-offset-2">
+              <div class = "bowlingStats">
+                 <table id = "bowlingTable" class = "table table-bordered">
+	                  		<tr>
+	                  			<th>Wickets</th>
+	                  			<th>Overs</th>
+	                  			<th>Average</th>
+	                  		</tr>
+	                  		<tr>
+	                  		 	<td id = "wickets">Runs</td>
+	                  			<td id = "overs">Balls Faced</td>
+	                  			<td id = "avgBowling">Average</td>
+	                  		</tr>
+	                  	</table>
+              </div> 
+        </div>
+      </div>
           </div>
           <div id="myDetails" class="tab-pane fade">
             <div class="row">
 	            <div class="col-md-10 col-md-offset-1">
 	              <div class="granStats">
-	                  <h1>My Details</h1>
+	                  <h2>My Details</h2>
 	              </div>
 	            </div>
 	      	</div>
