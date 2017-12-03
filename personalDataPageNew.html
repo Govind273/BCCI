@@ -20,9 +20,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript">
-	window.onload = function () {
+	/*window.onload = function () {
 
-var chart = new CanvasJS.Chart("batChartDiv", {
+	var chart = new CanvasJS.Chart("batChartDiv", {
 	animationEnabled: true,
 	theme: "light2",
 	title:{
@@ -50,7 +50,28 @@ var chart = new CanvasJS.Chart("batChartDiv", {
 		}]
 	});
 	chart.render();
-	}   
+	}*/  
+  let myChart = document.getElementById('batLineChart').getContext('2d');
+  let massChart = new Chart(myChart,{
+
+      type:'bar';
+      data :{
+        labels:['aa','bb','cc','dd','ee','ff','gg','hh'],
+
+        datasets:[{
+          label : 'Populations',
+          data:[
+              1312,
+              1213,
+              1412,
+              1555,
+              1891
+          ]
+        }]
+      },
+      options:{}
+
+  });
   </script>
   </head>
   <body> 
@@ -106,7 +127,7 @@ var chart = new CanvasJS.Chart("batChartDiv", {
 	    	<div class="col-md-3 col-md-offset-2">
 	    		<h4 id = "batStat">Batting Stats</h4>
 	    		<div id= "batChartDiv" style = "max-height: 200px">
-	    			<!-- <canvas id = "batLineChart"></canvas> -->
+	    			<canvas id = "batLineChart"></canvas>
 	    		</div>
 	    		<script src="js/canvasjs.min.js"></script>
 	    	</div>
